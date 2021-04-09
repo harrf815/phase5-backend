@@ -1,2 +1,0 @@
-class UserBusinessesController < ApplicationController
-end
