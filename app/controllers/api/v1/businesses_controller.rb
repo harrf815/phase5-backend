@@ -1,14 +1,14 @@
 class Api::V1::BusinessesController < ApplicationController
 
-    skip_before_action :authorized
 
     def index
-        businesses = Business.all 
+        businesses = @user.businesses
         render json: businesses
     end
 
     def create 
         business = Business.create(business_params)
+        ub = UserBusiness.create(user_id: @user.id, business_id: business.id)
         render json: business 
     end
 
