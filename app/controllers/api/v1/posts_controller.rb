@@ -4,7 +4,7 @@ class Api::V1::PostsController < ApplicationController
 
 
     def index 
-        posts = Post.all 
+        posts = Post.order("id DESC").all 
         render json: posts 
     end
 
